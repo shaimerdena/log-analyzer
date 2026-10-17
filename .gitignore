@@ -1,0 +1,32 @@
+# Compiled binaries
+/log-analyzer
+/bin/
+/dist/
+
+# Test outputs and coverage
+*.test
+*.out
+coverage.html
+coverage.txt
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors and IDEs
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
