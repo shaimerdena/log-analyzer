@@ -7,14 +7,14 @@ import (
 type TaskStatus string
 
 const (
-	Pending TaskStatus = "Pending"
+	Pending    TaskStatus = "Pending"
 	Processing TaskStatus = "Processing"
-    Completed  TaskStatus = "Completed"
+	Completed  TaskStatus = "Completed"
 )
 
-type Task struct{
-	ID int
-	Input []string
+type Task struct {
+	ID     int
+	Input  []string
 	Status TaskStatus
 	Result analyzer.AnalysisResult
 }

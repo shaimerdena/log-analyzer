@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestCreateTask(t *testing.T){
+func TestCreateTask(t *testing.T) {
 	manager := NewTaskManager()
 
 	input := []string{
@@ -22,19 +22,19 @@ func TestCreateTask(t *testing.T){
 		}`,
 	}
 
- 	createdTask, err := manager.CreateTask(input)
-	if err != nil{
+	createdTask, err := manager.CreateTask(input)
+	if err != nil {
 		t.Fatalf("expected no error, got %v", err)
 	}
 	if createdTask.ID != 0 {
 		t.Error("expected id to be 0")
 	}
-	if createdTask.Status != Pending{
+	if createdTask.Status != Pending {
 		t.Error("expected status to be pending")
 	}
 
 	storedTask, ok := manager.tasks[createdTask.ID]
-	if ok == false{
+	if ok == false {
 		t.Error("expected task to be in map")
 	}
 	if storedTask.ID != createdTask.ID {
@@ -42,7 +42,7 @@ func TestCreateTask(t *testing.T){
 	}
 }
 
-func TestEmptiness(t *testing.T){
+func TestEmptiness(t *testing.T) {
 	manager := NewTaskManager()
 
 	input := []string{}
@@ -54,19 +54,19 @@ func TestEmptiness(t *testing.T){
 	}
 }
 
-func TestJsonValidation(t *testing.T){
+func TestJsonValidation(t *testing.T) {
 	manager := NewTaskManager()
 
 	input := []string{`{"PRIORITY":`}
 
 	_, err := manager.CreateTask(input)
 
-	if err == nil{
+	if err == nil {
 		t.Fatal("expected error for invalid JSON")
 	}
 }
 
-func TestGetTask(t *testing.T){
+func TestGetTask(t *testing.T) {
 	manager := NewTaskManager()
 
 	input := []string{
@@ -93,7 +93,7 @@ func TestGetTask(t *testing.T){
 	}
 }
 
-func TestGetTaskNotFound(t *testing.T){
+func TestGetTaskNotFound(t *testing.T) {
 	manager := NewTaskManager()
 
 	input := []string{
