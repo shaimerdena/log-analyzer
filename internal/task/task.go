@@ -8,8 +8,10 @@ type TaskStatus string
 
 const (
 	Pending    TaskStatus = "Pending"
+	Queued     TaskStatus = "Queued"
 	Processing TaskStatus = "Processing"
 	Completed  TaskStatus = "Completed"
+	Failed     TaskStatus = "Failed"
 )
 
 type Task struct {
@@ -17,4 +19,5 @@ type Task struct {
 	Input  []string
 	Status TaskStatus
 	Result analyzer.AnalysisResult
+	Err    string
 }
